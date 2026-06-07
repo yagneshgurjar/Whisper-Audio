@@ -4,3 +4,7 @@ __pycache__/
 .env
 downloads/
 *.wav
+vector_db/
+# Optional
+*.sqlite3
+*.db

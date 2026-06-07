@@ -2,9 +2,11 @@ import yt_dlp
 from pydub import AudioSegment
 import os
 
-DOWNLOAD_DIR = 'downloads'
+# ✅ Fix — absolute path, works everywhere including Streamlit
+DOWNLOAD_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'downloads')
+DOWNLOAD_DIR = os.path.abspath(DOWNLOAD_DIR)
 
-os.makedirs(DOWNLOAD_DIR,exist_ok=True)
+os.makedirs(DOWNLOAD_DIR, exist_ok=True)
 
 def download_youtube_audio(url :str) ->str:
   output_path = os.path.join(DOWNLOAD_DIR, "%(title)s.%(ext)s")

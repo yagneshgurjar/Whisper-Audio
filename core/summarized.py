@@ -17,7 +17,7 @@ def split_transcript(transcript: str) -> list:
 
   return splitter.split_text(transcript)
 
-def summarized(transcript: str) -> str:
+def summarize(transcript: str) -> str:
   llm = get_llm()
 
   map_prompt = ChatPromptTemplate.from_messages(
@@ -54,7 +54,7 @@ def summarized(transcript: str) -> str:
 def generate_title(transcript: str) -> str:
   llm = get_llm()
 
-  summarized_text = summarized(transcript)
+  summarized_text = summarize(transcript)
 
   prompt = ChatPromptTemplate(
     [
